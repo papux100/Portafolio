@@ -1,0 +1,6 @@
+[submodule "themes/ananke"]
+	path = themes/ananke
+	url = https://github.com/theNewDynamic/gohugo-theme-ananke.git
+[submodule "practica0/paginaEstatica"]
+	path = practica0/paginaEstatica
+	url = https://github.com/papux100/Portafolio

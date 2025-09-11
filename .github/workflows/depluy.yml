@@ -1,9 +1,9 @@
-name: Deploy site to GitHub Pages
+name: Deploy Hugo site to GitHub Pages
 
 on:
   push:
     branches:
-      - main   # o la rama donde tienes tu código fuente
+      - main
 
 permissions:
   contents: read
@@ -17,20 +17,18 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v4
 
-      # Si usas Hugo, Jekyll, o Node, aquí va la compilación
-      # Ejemplo con Hugo:
       - name: Instalar Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
 
       - name: Compilar sitio
-        run: hugo --minify
+        run: hugo --minify -s practica0/paginaEstatica
 
       - name: Subir artefactos
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./practica0/paginaEstatica  # carpeta donde queda el sitio generado
+          path: practica0/paginaEstatica/public
 
   deploy:
     environment:

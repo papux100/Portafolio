@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout código
         uses: actions/checkout@v4
+        with:
+          submodules: true  # Asegura que los submódulos (como temas) se descarguen
 
       - name: Instalar Hugo Extended
         uses: peaceiris/actions-hugo@v2
@@ -24,7 +26,9 @@ jobs:
           extended: true
 
       - name: Compilar sitio
-        run: hugo --minify -s practica0/paginaEstatica
+        run: hugo --minify -s practica0/paginaEstatica --destination practica0/paginaEstatica/public
+        env:
+          HUGO_ENV: production  # Asegura un entorno de producción
 
       - name: Subir artefactos
         uses: actions/upload-pages-artifact@v3

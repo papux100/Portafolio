@@ -1,27 +1,44 @@
-name: Deploy Hugo site to GitHub Pages
+name: Deploy site to GitHub Pages
 
 on:
   push:
     branches:
-      - master   
+      - main   # o la rama donde tienes tu código fuente
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+      - name: Checkout código
+        uses: actions/checkout@v4
 
+      # Si usas Hugo, Jekyll, o Node, aquí va la compilación
+      # Ejemplo con Hugo:
       - name: Instalar Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
 
-      - name: Build
+      - name: Compilar sitio
         run: hugo --minify
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Subir artefactos
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          path: ./practica0/paginaEstatica  # carpeta donde queda el sitio generado
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Desplegar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -89,6 +89,60 @@ git push -u origin main
 Con esto ya puedes crear, modificar y subir tus proyectos a GitHub.
 
 
+### Configurar GitHub Actions para publicar en GitHub Pages
+
+#### 1. Crear un repositorio en GitHub
+1. Ingresa a [GitHub](https://github.com).
+2. Crea un repositorio nuevo o usa uno existente.
+3. Sube tu proyecto (ejemplo: sitio hecho con Hugo, Jekyll, React, etc.).
+
+
+#### 2. Activar GitHub Pages
+1. Ve a **Settings** → **Pages**.
+2. En "Source", selecciona **GitHub Actions**.
+
+
+#### 3. Crear un Workflow de GitHub Actions
+En tu repositorio, crea la carpeta `.github/workflows/` y dentro un archivo `deploy.yml` (puede llamarse diferente).
+
+Ejemplo básico para un sitio **Hugo**:
+
+```yaml
+name: Deploy Hugo site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main   # Se ejecuta cuando haces push a main
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Instalar Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+```
+
+
+
+[repositorio Papux100](https://github.com/papux100/Portafolio).
+
+[pagina Papux100](https://papux100.github.io/Portafolio/)
+
 ### Referencias
 
 1. colaboradores de Wikipedia. (2024, June 29). Hugo (software). Wikipedia, La Enciclopedia Libre. https://es.wikipedia.org/wiki/Hugo_(software)

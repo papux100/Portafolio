@@ -5,6 +5,9 @@
 ## Prof. Carlos Gallegos
 ## Reporte
 
+### introduccion:
+En esta practica veremos la cracion de paginas web atraves de la herramienta de hugo y a su vez como personalizar un poco la pagina para su uso en github para asi poder enlazar el protafolio, tambien sobre que es hugo, que es github actions y como crear una pagina en hugo
+
 ### ¿Qué es Hugo?
 Hugo es un generador de sitios estáticos (SSG, por sus siglas en inglés), escrito en Go. Fue creado por Steve Francia en 2013 y, desde la versión 0.14 en 2015, ha sido mantenido principalmente por Bjørn Erik Pedersen junto con otros colaboradores. Es un proyecto de código abierto bajo licencia Apache 2.0
 
@@ -147,4 +150,5 @@ jobs:
 
 1. colaboradores de Wikipedia. (2024, June 29). Hugo (software). Wikipedia, La Enciclopedia Libre. https://es.wikipedia.org/wiki/Hugo_(software)
 2. Mallón, X. (2024, April 24). ¿Qué es GitHub Actions? | KeepCoding Bootcamps. KeepCoding Bootcamps. https://keepcoding.io/blog/que-es-github-actions/
-3. 
+3. Host on GitHub pages. (2025, September 9). https://gohugo.io/host-and-deploy/host-on-github-pages/
+4. Quick start. (2025, March 8). https://gohugo.io/getting-started/quick-start/

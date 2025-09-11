@@ -3,7 +3,7 @@ name: Deploy Hugo site to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - master   
 
 permissions:
   contents: read
@@ -17,10 +17,11 @@ jobs:
       - name: Checkout código
         uses: actions/checkout@v4
 
-      - name: Instalar Hugo
+      - name: Instalar Hugo Extended
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
+          extended: true
 
       - name: Compilar sitio
         run: hugo --minify -s practica0/paginaEstatica

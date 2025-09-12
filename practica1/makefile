@@ -1,6 +1,17 @@
-CC=gcc
-CFLAGS=-Wall -g
-BIN_DIR=./build
+CC := gcc
+CFLAGS := -Wall -g
+BIN_DIR := build
+EXEC := $(BIN_DIR)/library
+SRC := main.c
+
+$(EXEC): $(BIN_DIR) $(SRC)
+	$(CC) $(CFLAGS) -o $(EXEC) $(SRC)
+
+$(BIN_DIR):
+	@mkdir -o $(BIN_DIR)
+
+clean:
+	rm -rf $(BIN_DIR)
 
 all:
-	$(CC) $(CFLAGS) -o $(BIN_DIR)/hello main.c
+	$(EXEC)

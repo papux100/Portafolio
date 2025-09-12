@@ -28,7 +28,7 @@ jobs:
       - name: Compilar sitio
         run: hugo --minify -s practica0/paginaEstatica --destination practica0/paginaEstatica/public
         env:
-          HUGO_ENV: production  # Asegura un entorno de producción
+          HUGO_ENV: production 
 
       - name: Subir artefactos
         uses: actions/upload-pages-artifact@v3

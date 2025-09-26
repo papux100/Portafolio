@@ -2,17 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on My New Hugo Site</title>
-    <link>http://localhost:1313/blog/</link>
+    <link>http://localhost:1313/Portafolio/blog/</link>
     <description>Recent content in Blogs on My New Hugo Site</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/Portafolio/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
-      <link>http://localhost:1313/blog/reporte_practica0_rodriguez/</link>
+      <link>http://localhost:1313/Portafolio/blog/practica0/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/blog/reporte_practica0_rodriguez/</guid>
+      <guid>http://localhost:1313/Portafolio/blog/practica0/</guid>
       <description>&lt;h1 id=&#34;paradigmas&#34;&gt;Paradigmas&lt;/h1&gt;&#xA;&lt;h2 id=&#34;practica-0&#34;&gt;Practica 0&lt;/h2&gt;&#xA;&lt;h2 id=&#34;892025&#34;&gt;8/9/2025&lt;/h2&gt;&#xA;&lt;h2 id=&#34;angel-rey-rodriguez377864&#34;&gt;Angel Rey Rodriguez(377864)&lt;/h2&gt;&#xA;&lt;h2 id=&#34;prof-carlos-gallegos&#34;&gt;Prof. Carlos Gallegos&lt;/h2&gt;&#xA;&lt;h2 id=&#34;reporte&#34;&gt;Reporte&lt;/h2&gt;&#xA;&lt;h3 id=&#34;introduccion&#34;&gt;introduccion:&lt;/h3&gt;&#xA;&lt;p&gt;En esta practica veremos la cracion de paginas web atraves de la herramienta de hugo y a su vez como personalizar un poco la pagina para su uso en github para asi poder enlazar el protafolio, tambien sobre que es hugo, que es github actions y como crear una pagina en hugo&lt;/p&gt;&#xA;&lt;h3 id=&#34;qué-es-hugo&#34;&gt;¿Qué es Hugo?&lt;/h3&gt;&#xA;&lt;p&gt;Hugo es un generador de sitios estáticos (SSG, por sus siglas en inglés), escrito en Go. Fue creado por Steve Francia en 2013 y, desde la versión 0.14 en 2015, ha sido mantenido principalmente por Bjørn Erik Pedersen junto con otros colaboradores. Es un proyecto de código abierto bajo licencia Apache 2.0&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/Portafolio/blog/practica1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/Portafolio/blog/practica1/</guid>
+      <description>&lt;h1 id=&#34;paradigmas&#34;&gt;Paradigmas&lt;/h1&gt;&#xA;&lt;h2 id=&#34;practica-1&#34;&gt;Practica 1&lt;/h2&gt;&#xA;&lt;h2 id=&#34;1292025&#34;&gt;12/9/2025&lt;/h2&gt;&#xA;&lt;h2 id=&#34;angel-rey-rodriguez377864&#34;&gt;Angel Rey Rodriguez(377864)&lt;/h2&gt;&#xA;&lt;h2 id=&#34;prof-carlos-gallegos&#34;&gt;Prof. Carlos Gallegos&lt;/h2&gt;&#xA;&lt;h2 id=&#34;reporte&#34;&gt;Reporte&lt;/h2&gt;&#xA;&lt;h1 id=&#34;introduccion&#34;&gt;introduccion:&lt;/h1&gt;&#xA;&lt;p&gt;A través de este ejercicio, se exploran conceptos clave de programación, como nombres, marcos de activación, bloques de alcance, administración de memoria, expresiones, comandos, estructuras de control de secuencia (selección, iteración y recursión), subprogramas y tipos de datos. El objetivo es desglosar el código para comprender cómo cada uno de estos elementos contribuye a la funcionalidad del sistema, destacando su organización, modularidad y manejo eficiente de recursos.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

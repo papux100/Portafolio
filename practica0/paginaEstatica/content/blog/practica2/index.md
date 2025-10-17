@@ -216,6 +216,10 @@ En resumen, la POO en Python hace el programa más intuitivo, extensible y menos
 
 ### Referencias
 
+[repositorio Papux100](https://github.com/papux100/Portafolio).
+
+[pagina Papux100](https://papux100.github.io/Portafolio/).
+
 9. Clases. (n.d.). Python Documentation. https://docs.python.org/es/3/tutorial/classes.html
 10. 📗 Crear clase. (n.d.). El Libro De Python. https://ellibrodepython.com/crear-clase-python
 11. Python classes: cómo crear clases y objetos. (2024, July 15). IONOS Digital Guide. https://www.ionos.mx/digitalguide/paginas-web/desarrollo-web/python-classes/

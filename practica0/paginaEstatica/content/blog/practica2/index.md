@@ -1,6 +1,6 @@
 # Paradigmas
 ## Practica 2
-## 8/9/2025
+## 17/10/2025
 ## Angel Rey Rodriguez(377864)
 ## Prof. Carlos Gallegos
 ## Reporte

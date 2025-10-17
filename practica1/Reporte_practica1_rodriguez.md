@@ -211,9 +211,11 @@ Los comandos son instrucciones ejecutables en el programa. Ejemplos:
 El control de secuencia incluye selección, iteración y recursión:
 
 * **Selección:**
-```c
+  
 if-else:
-cif (!new_book) {
+
+```c
+if (!new_book) {
     printf("Error al asignar memoria...\n");
     return;
 }
@@ -223,7 +225,7 @@ En addBook, verifica si la asignación de memoria falló.
 * **switch:**
 
 ```c
-cswitch (genre) {
+switch (genre) {
     case FICTION: return "Ficcion";
     ...
 }
@@ -232,9 +234,11 @@ En genreToString, selecciona una cadena según el valor de genre.
 
 
 * **Iteración:**
-```c
+
 while:
-cwhile (current) {
+
+```c
+while (current) {
     if (current->id == bookID) {
         return current;
     }
@@ -242,9 +246,9 @@ cwhile (current) {
 }
 ```
 En findBookById, recorre la lista de libros.
-```c
 for:
-cfor (int i = 0; i < memberFound->issued_count; i++) {
+```c
+for (int i = 0; i < memberFound->issued_count; i++) {
     if (memberFound->issued_books[i] == bookID) {
         ...
     }
@@ -257,7 +261,7 @@ En returnBook, busca un libro en la lista de prestados.
 
 En **displayBooksRecursive**:
 ```c
-cvoid displayBooksRecursive(book_t *library) {
+void displayBooksRecursive(book_t *library) {
     if (!library) return;
     printf(...);
     displayBooksRecursive(library->next);
@@ -304,13 +308,13 @@ El código utiliza varios tipos de datos:
 
 * **Enumeración:**
 ```c
-ctypedef enum { FICTION, NON_FICTION, ... } genre_t;
+typedef enum { FICTION, NON_FICTION, ... } genre_t;
 ```
 Define géneros de libros.
 
 * **Estructuras:**
 ```c
-ctypedef struct _book {
+typedef struct _book {
     int id;
     char title[100];
     ...
@@ -320,7 +324,7 @@ ctypedef struct _book {
 Representa un libro con un enlace al siguiente.
 
 ```c
-ctypedef struct _member {
+typedef struct _member {
     int id;
     char name[100];
     ...
@@ -342,8 +346,294 @@ char title[100], char author[100].
 int *issued_books: //Arreglo dinámico para IDs de libros prestados.
 ```
 
+# memory_management.c
+
+## 1. Nombres
+Los nombres son identificadores para variables, funciones, estructuras, etc. Aquí están los nombres únicos de este código:
+
+**Variables:**
+
+* **Globales:** heap_allocations, heap_deallocations, stack_allocations, stack_deallocations (contadores para seguimiento de memoria).
+* **Global con puntero:** heap_memory_records (puntero a una lista de registros de memoria).
+Locales: record (en addMemoryRecord), current (en removeMemoryRecord y displayMemoryUsage), to_free (en removeMemoryRecord).
+
+
+**Funciones:**
+
+* addMemoryRecord, removeMemoryRecord, displayMemoryUsage, incrementHeapAllocations, incrementHeapDeallocations, incrementStackAllocations, incrementStackDeallocations.
+
+
+**Estructuras:**
+
+* MemoryRecord (definida con typedef).
+
+
+**Constantes:**
+
+* MEMORY_MANAGEMENT_DISPLAY (macro condicional para controlar la salida de depuración).
+
+
+
+
+## 2. Marcos de activación
+Los marcos de activación son áreas en el stack para las variables locales y parámetros de una función. Elementos únicos:
+
+**En addMemoryRecord:**
+
+* **Parámetros:** pointer (tipo void*), size (tipo size_t).
+* **Variable local:** record (tipo MemoryRecord*).
+* El marco de activación almacena estas variables y se libera al retornar.
+
+
+**En removeMemoryRecord:**
+
+* **Parámetro:** pointer (tipo void*).
+* **Variables locales:** current (tipo MemoryRecord**), to_free (tipo MemoryRecord*).
+
+
+**En displayMemoryUsage:**
+
+* **Variable local:** current (tipo MemoryRecord*).
+
+
+## 3. Bloques de alcance
+Los bloques de alcance determinan la visibilidad y vida útil de los nombres. Elementos únicos:
+
+**Alcance global:**
+
+* **Variables:** heap_allocations, heap_deallocations, stack_allocations, stack_deallocations, heap_memory_records.
+Estas variables son accesibles en todo el programa y persisten durante toda la ejecución.
+
+
+**Alcance de función:**
+
+* **En addMemoryRecord:** record solo es visible dentro de la función.
+* **En removeMemoryRecord:** current y to_free son locales a la función.
+* **En displayMemoryUsage:** current es local.
+
+
+Alcance condicional (por macro):
+
+Las funciones incrementHeapAllocations y incrementHeapDeallocations tienen bloques condicionales controlados por #if MEMORY_MANAGEMENT_DISPLAY, que afectan la visibilidad de las llamadas a printf dentro de esos bloques.
+
+
+
+
+## 4. Administración de memoria
+Este código se centra en la gestión de memoria, con elementos únicos:
+
+* **Segmento de datos:**
+
+Variables globales inicializadas: heap_allocations, heap_deallocations, stack_allocations, stack_deallocations (inicializadas en 0).
+
+
+* **Heap:**
+
+   * **Asignación dinámica:**
+
+En addMemoryRecord: record = (MemoryRecord *)malloc(sizeof(MemoryRecord)) asigna memoria para un nuevo registro.
+
+
+   * **Liberación:**
+
+En removeMemoryRecord: free(to_free) libera un nodo de la lista de registros.
+
+
+   * **Lista enlazada para seguimiento:**
+
+heap_memory_records es una lista enlazada que registra punteros y tamaños de memoria asignada en el heap.
+addMemoryRecord agrega un nodo a esta lista.
+removeMemoryRecord elimina un nodo específico.
+
+
+
+
+Seguimiento de memoria:
+
+Contadores globales (heap_allocations, heap_deallocations) rastrean el número de asignaciones y liberaciones en el heap.
+Contadores stack_allocations y stack_deallocations (aunque no se usan explícitamente en el código previo para asignaciones automáticas).
+
+
+Condicionalidad:
+
+La macro MEMORY_MANAGEMENT_DISPLAY controla si se muestran mensajes de depuración (printf) sobre asignaciones y liberaciones.
+
+
+
+
+## 5. Expresiones
+**Expresiones únicas en este código:**
+
+**Asignación:**
+
+* record->pointer = pointer y record->size = size en addMemoryRecord.
+heap_memory_records = record en addMemoryRecord.
+
+
+**Punteros y desreferenciación:**
+
+* (*current)->pointer == pointer en removeMemoryRecord (compara el puntero almacenado).
+current = &(*current)->next en removeMemoryRecord (avanza al siguiente nodo).
+
+
+**Incrementos:**
+
+* heap_allocations++ en incrementHeapAllocations.
+* heap_deallocations++ en incrementHeapDeallocations.
+
+
+**Formato de cadenas:**
+
+* En displayMemoryUsage: printf("| 0x%-14p | %-27zu |\n", current->pointer, current->size) para mostrar punteros y tamaños.
+
+
+
+
+## 6. Comandos
+
+**Comandos únicos (instrucciones ejecutables):**
+
+* **Asignaciones:**
+
+  * **record->next = heap_memory_records** en addMemoryRecord.
+  * ***current = (*current)->next**** en removeMemoryRecord.
+
+
+* **Entrada/salida:**
+
+  * **En displayMemoryUsage:**
+```c
+printf("|   Asignaciones: %-28d |\n", heap_allocations);
+```
+Muestra contadores de memoria.
+  * **En incrementHeapAllocations:**
+```c
+printf("Memoria asignada en el heap: Puntero=0x%p, Tamano=%zu bytes\n", pointer, size);
+```
+
+
+* **Liberación de memoria:**
+
+  * **free(to_free)** en removeMemoryRecord.
+
+
+
+
+## 7. Control de secuencia
+**Elementos únicos de control de secuencia:**
+
+* **Selección:**
+
+   * **if:**
+```c
+if ((*current)->pointer == pointer) {
+    MemoryRecord *to_free = *current;
+    *current = (*current)->next;
+    free(to_free);
+    return;
+}
+```
+En removeMemoryRecord, verifica si el puntero coincide para eliminar el registro.
+
+
+* **Iteración:**
+
+  * **while:**
+```c
+while (*current) {
+    ...
+    current = &(*current)->next;
+}
+En removeMemoryRecord, recorre la lista para encontrar el puntero.
+cwhile (current) {
+    printf("| 0x%-14p | %-27zu |\n", current->pointer, current->size);
+    current = current->next;
+}
+```
+En displayMemoryUsage, muestra todos los registros de memoria.
+
+
+* **Recursión:**
+
+  * No hay recursión explícita en este código (a diferencia del código anterior con displayBooksRecursive).
+
+
+* **Directivas de preprocesador:**
+
+  * #if MEMORY_MANAGEMENT_DISPLAY controla condicionalmente la ejecución de printf en displayMemoryUsage, incrementHeapAllocations y incrementHeapDeallocations.
+
+
+
+
+## 8. Subprogramas
+   
+* **Subprogramas (funciones) únicos en este código:**
+
+  **addMemoryRecord(void *pointer, size_t size):***
+
+  * Crea un nuevo nodo MemoryRecord y lo agrega a la lista heap_memory_records.
+
+
+  **removeMemoryRecord(void *pointer):***
+
+  * Busca y elimina un nodo de la lista heap_memory_records basado en el puntero.
+
+
+  **displayMemoryUsage():**
+
+  * Muestra estadísticas de memoria (contadores y detalles de heap).
+
+
+  **incrementHeapAllocations(void *pointer, size_t size):***
+
+  * Incrementa el contador de asignaciones y registra el puntero/tamaño.
+
+
+  **incrementHeapDeallocations(void *pointer):***
+
+  * Incrementa el contador de liberaciones y elimina el registro.
+
+
+  **incrementStackAllocations() y incrementStackDeallocations():**
+
+  * Incrementan contadores para el stack (aunque no se usan en el código previo).
+
+
+
+
+## 9. Tipos de datos
+* **Tipos de datos únicos:**
+
+  * **Primitivos:**
+
+    * **int:** heap_allocations, heap_deallocations, stack_allocations, stack_deallocations.
+    * **size_t:** Para el tamaño de memoria en addMemoryRecord e incrementHeapAllocations.
+    * **void*:** Para punteros genéricos en pointer (en addMemoryRecord, removeMemoryRecord, etc.).
+
+
+  * **Definidos por el usuario:**
+
+    * **Estructura:**
+
+    ```c
+    typedef struct MemoryRecord {
+        void *pointer;
+        size_t size;
+        struct MemoryRecord *next;
+    } MemoryRecord;
+    ```
+    Representa un registro de memoria asignada en el heap.
+
+
+    * **Punteros:**
+
+      * **MemoryRecord*:** heap_memory_records, record, current.
+      * **MemoryRecord**:** current en removeMemoryRecord (puntero doble para modificar la lista).
+      * **void*:** Para almacenar punteros genéricos en MemoryRecord.
+
 # conclusion
 En mi opinión, el programa en C para la gestión de una biblioteca es un excelente ejemplo de cómo los fundamentos de programación estructurada pueden aplicarse para crear un sistema funcional y eficiente. La claridad en el uso de nombres, la organización modular de los subprogramas y el manejo cuidadoso de la memoria dinámica reflejan un diseño bien pensado.
+
 
 # Referencias
 

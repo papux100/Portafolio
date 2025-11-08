@@ -52,7 +52,7 @@ A través de este ejercicio, se exploran conceptos clave de programación, como 
 
   <meta itemprop="name" content="My New Hugo Site">
   <meta itemprop="description" content="Paradigmas Practica 1 12/9/2025 Angel Rey Rodriguez(377864) Prof. Carlos Gallegos Reporte introduccion: A través de este ejercicio, se exploran conceptos clave de programación, como nombres, marcos de activación, bloques de alcance, administración de memoria, expresiones, comandos, estructuras de control de secuencia (selección, iteración y recursión), subprogramas y tipos de datos. El objetivo es desglosar el código para comprender cómo cada uno de estos elementos contribuye a la funcionalidad del sistema, destacando su organización, modularidad y manejo eficiente de recursos.">
-  <meta itemprop="wordCount" content="1158">
+  <meta itemprop="wordCount" content="1938">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="My New Hugo Site">
   <meta name="twitter:description" content="Paradigmas Practica 1 12/9/2025 Angel Rey Rodriguez(377864) Prof. Carlos Gallegos Reporte introduccion: A través de este ejercicio, se exploran conceptos clave de programación, como nombres, marcos de activación, bloques de alcance, administración de memoria, expresiones, comandos, estructuras de control de secuencia (selección, iteración y recursión), subprogramas y tipos de datos. El objetivo es desglosar el código para comprender cómo cada uno de estos elementos contribuye a la funcionalidad del sistema, destacando su organización, modularidad y manejo eficiente de recursos.">
@@ -344,8 +344,8 @@ bookFound-&gt;quantity&ndash; en issueBook.</li>
 <ul>
 <li><strong>Selección:</strong></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">if</span><span style="color:#f92672">-</span><span style="color:#66d9ef">else</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cif</span> (<span style="color:#f92672">!</span>new_book) {
+<p>if-else:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>new_book) {
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Error al asignar memoria...</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
 </span></span><span style="display:flex;"><span>}
@@ -353,7 +353,7 @@ bookFound-&gt;quantity&ndash; en issueBook.</li>
 <ul>
 <li><strong>switch:</strong></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a6e22e">cswitch</span> (genre) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">switch</span> (genre) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">case</span> FICTION: <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Ficcion&#34;</span>;
 </span></span><span style="display:flex;"><span>    ...
 </span></span><span style="display:flex;"><span>}
@@ -361,16 +361,16 @@ bookFound-&gt;quantity&ndash; en issueBook.</li>
 <ul>
 <li><strong>Iteración:</strong></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">while</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cwhile</span> (current) {
+<p>while:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (current) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (current<span style="color:#f92672">-&gt;</span>id <span style="color:#f92672">==</span> bookID) {
 </span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> current;
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>    current <span style="color:#f92672">=</span> current<span style="color:#f92672">-&gt;</span>next;
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>En findBookById, recorre la lista de libros.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">for</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cfor</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> memberFound<span style="color:#f92672">-&gt;</span>issued_count; i<span style="color:#f92672">++</span>) {
+</span></span></code></pre></div><p>En findBookById, recorre la lista de libros.
+for:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> memberFound<span style="color:#f92672">-&gt;</span>issued_count; i<span style="color:#f92672">++</span>) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (memberFound<span style="color:#f92672">-&gt;</span>issued_books[i] <span style="color:#f92672">==</span> bookID) {
 </span></span><span style="display:flex;"><span>        ...
 </span></span><span style="display:flex;"><span>    }
@@ -380,7 +380,7 @@ bookFound-&gt;quantity&ndash; en issueBook.</li>
 <li><strong>Recursión:</strong></li>
 </ul>
 <p>En <strong>displayBooksRecursive</strong>:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>cvoid <span style="color:#a6e22e">displayBooksRecursive</span>(<span style="color:#66d9ef">book_t</span> <span style="color:#f92672">*</span>library) {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">displayBooksRecursive</span>(<span style="color:#66d9ef">book_t</span> <span style="color:#f92672">*</span>library) {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>library) <span style="color:#66d9ef">return</span>;
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(...);
 </span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">displayBooksRecursive</span>(library<span style="color:#f92672">-&gt;</span>next);
@@ -415,19 +415,19 @@ Modularidad: Cada función realiza una tarea específica, como agregar, prestar 
 <ul>
 <li><strong>Enumeración:</strong></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>ctypedef <span style="color:#66d9ef">enum</span> { FICTION, NON_FICTION, ... } <span style="color:#66d9ef">genre_t</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">enum</span> { FICTION, NON_FICTION, ... } <span style="color:#66d9ef">genre_t</span>;
 </span></span></code></pre></div><p>Define géneros de libros.</p>
 <ul>
 <li><strong>Estructuras:</strong></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>ctypedef <span style="color:#66d9ef">struct</span> _book {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> _book {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> id;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> title[<span style="color:#ae81ff">100</span>];
 </span></span><span style="display:flex;"><span>    ...
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> _book <span style="color:#f92672">*</span>next;
 </span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">book_t</span>;
 </span></span></code></pre></div><p>Representa un libro con un enlace al siguiente.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>ctypedef <span style="color:#66d9ef">struct</span> _member {
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> _member {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> id;
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">char</span> name[<span style="color:#ae81ff">100</span>];
 </span></span><span style="display:flex;"><span>    ...
@@ -445,7 +445,259 @@ Modularidad: Cada función realiza una tarea específica, como agregar, prestar 
 </ul>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">char</span> title[<span style="color:#ae81ff">100</span>], <span style="color:#66d9ef">char</span> author[<span style="color:#ae81ff">100</span>].
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#f92672">*</span>issued_books: <span style="color:#75715e">//Arreglo dinámico para IDs de libros prestados.
-</span></span></span></code></pre></div><h1 id="conclusion">conclusion</h1>
+</span></span></span></code></pre></div><h1 id="memory_managementc">memory_management.c</h1>
+<h2 id="1-nombres-1">1. Nombres</h2>
+<p>Los nombres son identificadores para variables, funciones, estructuras, etc. Aquí están los nombres únicos de este código:</p>
+<p><strong>Variables:</strong></p>
+<ul>
+<li><strong>Globales:</strong> heap_allocations, heap_deallocations, stack_allocations, stack_deallocations (contadores para seguimiento de memoria).</li>
+<li><strong>Global con puntero:</strong> heap_memory_records (puntero a una lista de registros de memoria).
+Locales: record (en addMemoryRecord), current (en removeMemoryRecord y displayMemoryUsage), to_free (en removeMemoryRecord).</li>
+</ul>
+<p><strong>Funciones:</strong></p>
+<ul>
+<li>addMemoryRecord, removeMemoryRecord, displayMemoryUsage, incrementHeapAllocations, incrementHeapDeallocations, incrementStackAllocations, incrementStackDeallocations.</li>
+</ul>
+<p><strong>Estructuras:</strong></p>
+<ul>
+<li>MemoryRecord (definida con typedef).</li>
+</ul>
+<p><strong>Constantes:</strong></p>
+<ul>
+<li>MEMORY_MANAGEMENT_DISPLAY (macro condicional para controlar la salida de depuración).</li>
+</ul>
+<h2 id="2-marcos-de-activación">2. Marcos de activación</h2>
+<p>Los marcos de activación son áreas en el stack para las variables locales y parámetros de una función. Elementos únicos:</p>
+<p><strong>En addMemoryRecord:</strong></p>
+<ul>
+<li><strong>Parámetros:</strong> pointer (tipo void*), size (tipo size_t).</li>
+<li><strong>Variable local:</strong> record (tipo MemoryRecord*).</li>
+<li>El marco de activación almacena estas variables y se libera al retornar.</li>
+</ul>
+<p><strong>En removeMemoryRecord:</strong></p>
+<ul>
+<li><strong>Parámetro:</strong> pointer (tipo void*).</li>
+<li><strong>Variables locales:</strong> current (tipo MemoryRecord**), to_free (tipo MemoryRecord*).</li>
+</ul>
+<p><strong>En displayMemoryUsage:</strong></p>
+<ul>
+<li><strong>Variable local:</strong> current (tipo MemoryRecord*).</li>
+</ul>
+<h2 id="3-bloques-de-alcance-1">3. Bloques de alcance</h2>
+<p>Los bloques de alcance determinan la visibilidad y vida útil de los nombres. Elementos únicos:</p>
+<p><strong>Alcance global:</strong></p>
+<ul>
+<li><strong>Variables:</strong> heap_allocations, heap_deallocations, stack_allocations, stack_deallocations, heap_memory_records.
+Estas variables son accesibles en todo el programa y persisten durante toda la ejecución.</li>
+</ul>
+<p><strong>Alcance de función:</strong></p>
+<ul>
+<li><strong>En addMemoryRecord:</strong> record solo es visible dentro de la función.</li>
+<li><strong>En removeMemoryRecord:</strong> current y to_free son locales a la función.</li>
+<li><strong>En displayMemoryUsage:</strong> current es local.</li>
+</ul>
+<p>Alcance condicional (por macro):</p>
+<p>Las funciones incrementHeapAllocations y incrementHeapDeallocations tienen bloques condicionales controlados por #if MEMORY_MANAGEMENT_DISPLAY, que afectan la visibilidad de las llamadas a printf dentro de esos bloques.</p>
+<h2 id="4-administración-de-memoria-1">4. Administración de memoria</h2>
+<p>Este código se centra en la gestión de memoria, con elementos únicos:</p>
+<ul>
+<li><strong>Segmento de datos:</strong></li>
+</ul>
+<p>Variables globales inicializadas: heap_allocations, heap_deallocations, stack_allocations, stack_deallocations (inicializadas en 0).</p>
+<ul>
+<li>
+<p><strong>Heap:</strong></p>
+<ul>
+<li><strong>Asignación dinámica:</strong></li>
+</ul>
+</li>
+</ul>
+<p>En addMemoryRecord: record = (MemoryRecord *)malloc(sizeof(MemoryRecord)) asigna memoria para un nuevo registro.</p>
+<ul>
+<li><strong>Liberación:</strong></li>
+</ul>
+<p>En removeMemoryRecord: free(to_free) libera un nodo de la lista de registros.</p>
+<ul>
+<li><strong>Lista enlazada para seguimiento:</strong></li>
+</ul>
+<p>heap_memory_records es una lista enlazada que registra punteros y tamaños de memoria asignada en el heap.
+addMemoryRecord agrega un nodo a esta lista.
+removeMemoryRecord elimina un nodo específico.</p>
+<p>Seguimiento de memoria:</p>
+<p>Contadores globales (heap_allocations, heap_deallocations) rastrean el número de asignaciones y liberaciones en el heap.
+Contadores stack_allocations y stack_deallocations (aunque no se usan explícitamente en el código previo para asignaciones automáticas).</p>
+<p>Condicionalidad:</p>
+<p>La macro MEMORY_MANAGEMENT_DISPLAY controla si se muestran mensajes de depuración (printf) sobre asignaciones y liberaciones.</p>
+<h2 id="5-expresiones-1">5. Expresiones</h2>
+<p><strong>Expresiones únicas en este código:</strong></p>
+<p><strong>Asignación:</strong></p>
+<ul>
+<li>record-&gt;pointer = pointer y record-&gt;size = size en addMemoryRecord.
+heap_memory_records = record en addMemoryRecord.</li>
+</ul>
+<p><strong>Punteros y desreferenciación:</strong></p>
+<ul>
+<li>(*current)-&gt;pointer == pointer en removeMemoryRecord (compara el puntero almacenado).
+current = &amp;(*current)-&gt;next en removeMemoryRecord (avanza al siguiente nodo).</li>
+</ul>
+<p><strong>Incrementos:</strong></p>
+<ul>
+<li>heap_allocations++ en incrementHeapAllocations.</li>
+<li>heap_deallocations++ en incrementHeapDeallocations.</li>
+</ul>
+<p><strong>Formato de cadenas:</strong></p>
+<ul>
+<li>En displayMemoryUsage: printf(&quot;| 0x%-14p | %-27zu |\n&rdquo;, current-&gt;pointer, current-&gt;size) para mostrar punteros y tamaños.</li>
+</ul>
+<h2 id="6-comandos-1">6. Comandos</h2>
+<p><strong>Comandos únicos (instrucciones ejecutables):</strong></p>
+<ul>
+<li>
+<p><strong>Asignaciones:</strong></p>
+<ul>
+<li><strong>record-&gt;next = heap_memory_records</strong> en addMemoryRecord.</li>
+<li><em><strong>current = (<em>current)-&gt;next</em></strong></em> en removeMemoryRecord.</li>
+</ul>
+</li>
+<li>
+<p><strong>Entrada/salida:</strong></p>
+<ul>
+<li><strong>En displayMemoryUsage:</strong></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;|   Asignaciones: %-28d |</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, heap_allocations);
+</span></span></code></pre></div><p>Muestra contadores de memoria.</p>
+<ul>
+<li><strong>En incrementHeapAllocations:</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;Memoria asignada en el heap: Puntero=0x%p, Tamano=%zu bytes</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, pointer, size);
+</span></span></code></pre></div><ul>
+<li>
+<p><strong>Liberación de memoria:</strong></p>
+<ul>
+<li><strong>free(to_free)</strong> en removeMemoryRecord.</li>
+</ul>
+</li>
+</ul>
+<h2 id="7-control-de-secuencia">7. Control de secuencia</h2>
+<p><strong>Elementos únicos de control de secuencia:</strong></p>
+<ul>
+<li>
+<p><strong>Selección:</strong></p>
+<ul>
+<li><strong>if:</strong></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> ((<span style="color:#f92672">*</span>current)<span style="color:#f92672">-&gt;</span>pointer <span style="color:#f92672">==</span> pointer) {
+</span></span><span style="display:flex;"><span>    MemoryRecord <span style="color:#f92672">*</span>to_free <span style="color:#f92672">=</span> <span style="color:#f92672">*</span>current;
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">*</span>current <span style="color:#f92672">=</span> (<span style="color:#f92672">*</span>current)<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">free</span>(to_free);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>En removeMemoryRecord, verifica si el puntero coincide para eliminar el registro.</p>
+<ul>
+<li>
+<p><strong>Iteración:</strong></p>
+<ul>
+<li><strong>while:</strong></li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (<span style="color:#f92672">*</span>current) {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    current <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>(<span style="color:#f92672">*</span>current)<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>En removeMemoryRecord, recorre la lista para encontrar el puntero.
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">cwhile</span> (current) {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">printf</span>(<span style="color:#e6db74">&#34;| 0x%-14p | %-27zu |</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, current<span style="color:#f92672">-&gt;</span>pointer, current<span style="color:#f92672">-&gt;</span>size);
+</span></span><span style="display:flex;"><span>    current <span style="color:#f92672">=</span> current<span style="color:#f92672">-&gt;</span>next;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>En displayMemoryUsage, muestra todos los registros de memoria.</p>
+<ul>
+<li>
+<p><strong>Recursión:</strong></p>
+<ul>
+<li>No hay recursión explícita en este código (a diferencia del código anterior con displayBooksRecursive).</li>
+</ul>
+</li>
+<li>
+<p><strong>Directivas de preprocesador:</strong></p>
+<ul>
+<li>#if MEMORY_MANAGEMENT_DISPLAY controla condicionalmente la ejecución de printf en displayMemoryUsage, incrementHeapAllocations y incrementHeapDeallocations.</li>
+</ul>
+</li>
+</ul>
+<h2 id="8-subprogramas-1">8. Subprogramas</h2>
+<ul>
+<li>
+<p><strong>Subprogramas (funciones) únicos en este código:</strong></p>
+<p><strong>addMemoryRecord(void <em>pointer, size_t size):</em></strong></p>
+<ul>
+<li>Crea un nuevo nodo MemoryRecord y lo agrega a la lista heap_memory_records.</li>
+</ul>
+<p><strong>removeMemoryRecord(void <em>pointer):</em></strong></p>
+<ul>
+<li>Busca y elimina un nodo de la lista heap_memory_records basado en el puntero.</li>
+</ul>
+<p><strong>displayMemoryUsage():</strong></p>
+<ul>
+<li>Muestra estadísticas de memoria (contadores y detalles de heap).</li>
+</ul>
+<p><strong>incrementHeapAllocations(void <em>pointer, size_t size):</em></strong></p>
+<ul>
+<li>Incrementa el contador de asignaciones y registra el puntero/tamaño.</li>
+</ul>
+<p><strong>incrementHeapDeallocations(void <em>pointer):</em></strong></p>
+<ul>
+<li>Incrementa el contador de liberaciones y elimina el registro.</li>
+</ul>
+<p><strong>incrementStackAllocations() y incrementStackDeallocations():</strong></p>
+<ul>
+<li>Incrementan contadores para el stack (aunque no se usan en el código previo).</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-tipos-de-datos-1">9. Tipos de datos</h2>
+<ul>
+<li>
+<p><strong>Tipos de datos únicos:</strong></p>
+<ul>
+<li>
+<p><strong>Primitivos:</strong></p>
+<ul>
+<li><strong>int:</strong> heap_allocations, heap_deallocations, stack_allocations, stack_deallocations.</li>
+<li><strong>size_t:</strong> Para el tamaño de memoria en addMemoryRecord e incrementHeapAllocations.</li>
+<li><em><em>void</em>:</em>* Para punteros genéricos en pointer (en addMemoryRecord, removeMemoryRecord, etc.).</li>
+</ul>
+</li>
+<li>
+<p><strong>Definidos por el usuario:</strong></p>
+<ul>
+<li><strong>Estructura:</strong></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> MemoryRecord {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#f92672">*</span>pointer;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">size_t</span> size;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> MemoryRecord <span style="color:#f92672">*</span>next;
+</span></span><span style="display:flex;"><span>} MemoryRecord;
+</span></span></code></pre></div><p>Representa un registro de memoria asignada en el heap.</p>
+<ul>
+<li>
+<p><strong>Punteros:</strong></p>
+<ul>
+<li><em><em>MemoryRecord</em>:</em>* heap_memory_records, record, current.</li>
+<li><strong>MemoryRecord</strong>:** current en removeMemoryRecord (puntero doble para modificar la lista).</li>
+<li><em><em>void</em>:</em>* Para almacenar punteros genéricos en MemoryRecord.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="conclusion">conclusion</h1>
 <p>En mi opinión, el programa en C para la gestión de una biblioteca es un excelente ejemplo de cómo los fundamentos de programación estructurada pueden aplicarse para crear un sistema funcional y eficiente. La claridad en el uso de nombres, la organización modular de los subprogramas y el manejo cuidadoso de la memoria dinámica reflejan un diseño bien pensado.</p>
 <h1 id="referencias">Referencias</h1>
 <p><a href="https://github.com/papux100/Portafolio">repositorio Papux100</a>.</p>

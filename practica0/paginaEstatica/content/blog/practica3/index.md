@@ -207,7 +207,7 @@ Haskell es un lenguaje poderoso pero con curva de aprendizaje pronunciada. Su si
 
 [repositorio Papux100](https://github.com/papux100/Portafolio).
 
-[pagina Papux100](https://papux100.github.io/Portafolio/)
+[pagina Papux100](https://papux100.github.io/Portafolio/blog)
 
 Get started. (n.d.). https://www.haskell.org/get-started/
 colaboradores de Wikipedia. (2025, April 4). Haskell. Wikipedia, La Enciclopedia Libre. https://es.wikipedia.org/wiki/Haskell

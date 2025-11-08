@@ -218,7 +218,7 @@ En resumen, la POO en Python hace el programa más intuitivo, extensible y menos
 
 [repositorio Papux100](https://github.com/papux100/Portafolio).
 
-[pagina Papux100](https://papux100.github.io/Portafolio/).
+[pagina Papux100](https://papux100.github.io/Portafolio/blog).
 
 9. Clases. (n.d.). Python Documentation. https://docs.python.org/es/3/tutorial/classes.html
 10. 📗 Crear clase. (n.d.). El Libro De Python. https://ellibrodepython.com/crear-clase-python

@@ -144,7 +144,7 @@ jobs:
 
 [repositorio Papux100](https://github.com/papux100/Portafolio).
 
-[pagina Papux100](https://papux100.github.io/Portafolio/)
+[pagina Papux100](https://papux100.github.io/Portafolio/blog)
 
 ### Referencias
 

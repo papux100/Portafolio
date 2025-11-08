@@ -640,6 +640,6 @@ En mi opinión, el programa en C para la gestión de una biblioteca es un excele
 
 [repositorio Papux100](https://github.com/papux100/Portafolio).
 
-[pagina Papux100](https://papux100.github.io/Portafolio/).
+[pagina Papux100](https://papux100.github.io/Portafolio/blog).
 
 1. U2 - Programming Paradigms.pdf. (n.d.). Google Docs. https://drive.google.com/file/d/1Ts1HTPs-ho9X-wjSw81eRFSJpDrPnJ5w/view
